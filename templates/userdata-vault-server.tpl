@@ -351,3 +351,22 @@ allowed_roles=*
 %{ endif }
 
 logger "Complete"
+
+sudo aws s3 cp s3://vaulttext/nf-test5.json /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing10calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing9calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing8calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing6calls.sh /home/ --acl bucket-owner-full-control
+
+sudo chmod +x testing.sh
+sudo chmod +x testing10calls.sh
+sudo chmod +x testing9calls.sh
+sudo chmod +x testing8calls.sh
+sudo chmod +x testing6calls.sh
+
+sudo chown -R vault:Vault /home/testing.sh
+sudo chown -R vault:Vault /home/testing10calls.sh
+sudo chown -R vault:Vault /home/testing9calls.sh
+sudo chown -R vault:Vault /home/testing8calls.sh
+sudo chown -R vault:Vault /home/testing6calls.sh
