@@ -16,3 +16,19 @@ Step 3. terraform plan
 Step 4. terraform apply
 
 Vault_1 will be Leader. 
+
+ssh on to vault_1 
+  1. $ cat /var/log/tf-user-data.log
+  2. Wait for the process to complete
+  3. Once complete and you see that the files are downloaded from s3 bucket
+  4. $ cat root_token 
+  5. copy the token and use in vault login
+  6. $ export VAULT_ADDR=http://127.0.0.1:8200
+  7. $ vault login <root_token>
+  8. $ export VAULT_TOKEN=$VAULT_TOKEN
+  9. cd /home/ 
+  10. ls -l
+  11. $ ./testing.sh - to run a batch process
+
+To check if a cluster as formed
+  $ vault operator raft list-peers
