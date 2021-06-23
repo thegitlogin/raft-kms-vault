@@ -23,7 +23,7 @@ variable "vault_server_private_ips" {
   description = "The private ips of the Vault nodes that will join the cluster"
   # @see https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
   type = list(string)
-  default = [ "10.0.101.22", "10.0.101.23", "10.0.101.24" ]
+  default = [ "10.0.101.xx", "10.0.101.xx", "10.0.101.xx" ]
 }
 
 
