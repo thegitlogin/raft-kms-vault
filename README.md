@@ -30,5 +30,6 @@ ssh on to vault_1
   10. ls -l
   11. $ ./testing.sh - to run a batch process
 
-To check if a cluster as formed
+To check if a cluster has formed, run
+
   $ vault operator raft list-peers
