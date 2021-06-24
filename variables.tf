@@ -49,3 +49,8 @@ variable "instance_ami" {
   type        = string
   default     = "ami-0747bdcabd34c712a"
 }
+
+# S3 bucket
+variable "s3bucket" {
+  default = "vaulttext"
+}
