@@ -22,7 +22,7 @@ ssh on to vault_1
   2. Wait for the process to complete
   3. Once complete and you see that the files are downloaded from s3 bucket
   4. $ cat root_token 
-  5. copy the token and use in vault login
+  5. copy the token and use in vault login - step 7
   6. $ export VAULT_ADDR=http://127.0.0.1:8200
   7. $ vault login <root_token>
   8. $ export VAULT_TOKEN=$VAULT_TOKEN
