@@ -286,7 +286,7 @@ export VAULT_TOKEN=$VAULT_TOKEN
 logger "Waiting for Vault to finish preparations (10s)"
 sleep 10
 
-sudo aws s3 cp s3://$${s3bucket}/lic_payload.json /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/lic_payload.json /home/ --acl bucket-owner-full-control
 cd /home/
 curl \
 --header "X-Vault-Token: $VAULT_TOKEN" \
@@ -352,12 +352,12 @@ allowed_roles=*
 
 logger "Complete"
 
-sudo aws s3 cp s3://$${s3bucket}/nf-test5.json /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://$${s3bucket}/testing.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://$${s3bucket}/testing10calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://$${s3bucket}/testing9calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://$${s3bucket}/testing8calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://$${s3bucket}/testing6calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/nf-test5.json /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing10calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing9calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing8calls.sh /home/ --acl bucket-owner-full-control
+sudo aws s3 cp s3://vaulttext/testing6calls.sh /home/ --acl bucket-owner-full-control
 
 sudo chmod +x testing.sh
 sudo chmod +x testing10calls.sh
