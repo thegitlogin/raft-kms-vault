@@ -312,61 +312,61 @@ vault kv put kv/apikey webapp=ABB39KKPTWOR832JGNLS02
 
 # Enable
 
-logger "Enabling Transform Secrets Engine"
-vault secrets enable transform
+# logger "Enabling Transform Secrets Engine"
+# vault secrets enable transform
 
 # From <https://learn.hashicorp.com/tutorials/vault/transform>
 
-vault write transform/role/payments transformations=card-number
+# vault write transform/role/payments transformations=card-number
 
-vault write transform/transformations/fpe/card-number \
-template="builtin/creditcardnumber" \
-tweak_source=internal \
-allowed_roles=payments
+# vault write transform/transformations/fpe/card-number \
+# template="builtin/creditcardnumber" \
+# tweak_source=internal \
+# allowed_roles=payments
 
-vault write transform/template/ssn \
-type=regex \
-pattern="(\d{3})-(\d{2})-(\d{4})" \
-alphabet=builtin/numeric
+# vault write transform/template/ssn \
+# type=regex \
+# pattern="(\d{3})-(\d{2})-(\d{4})" \
+# alphabet=builtin/numeric
 
-vault write transform/role/payments transformations=card-number,sin
+# vault write transform/role/payments transformations=card-number,sin
 
-vault write transform/transformations/fpe/sin \
-template=ssn \
-tweak_source=internal \
-allowed_roles=*
+# vault write transform/transformations/fpe/sin \
+# template=ssn \
+# tweak_source=internal \
+# allowed_roles=*
 
-vault write transform/role/payments \
-transformations=card-number,sin,phone-number
+# vault write transform/role/payments \
+# transformations=card-number,sin,phone-number
 
-vault write transform/template/phone-no-tmpl \
-type=regex \
-pattern="\+\d{1,2} (\d{3})-(\d{3})-(\d{4})" \
-alphabet=builtin/numeric
+# vault write transform/template/phone-no-tmpl \
+# type=regex \
+# pattern="\+\d{1,2} (\d{3})-(\d{3})-(\d{4})" \
+# alphabet=builtin/numeric
 
-vault write transform/transformations/masking/phone-number \
-template=phone-no-tmpl \
-masking_character=# \
-allowed_roles=*
-%{ endif }
+# vault write transform/transformations/masking/phone-number \
+# template=phone-no-tmpl \
+# masking_character=# \
+# allowed_roles=*
+# %{ endif }
 
-logger "Complete"
+# logger "Complete"
 
-sudo aws s3 cp s3://vaulttext/nf-test5.json /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://vaulttext/testing.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://vaulttext/testing10calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://vaulttext/testing9calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://vaulttext/testing8calls.sh /home/ --acl bucket-owner-full-control
-sudo aws s3 cp s3://vaulttext/testing6calls.sh /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/nf-test5.json /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/testing.sh /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/testing10calls.sh /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/testing9calls.sh /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/testing8calls.sh /home/ --acl bucket-owner-full-control
+# sudo aws s3 cp s3://vaulttext/testing6calls.sh /home/ --acl bucket-owner-full-control
 
-sudo chmod +x testing.sh
-sudo chmod +x testing10calls.sh
-sudo chmod +x testing9calls.sh
-sudo chmod +x testing8calls.sh
-sudo chmod +x testing6calls.sh
+# sudo chmod +x testing.sh
+# sudo chmod +x testing10calls.sh
+# sudo chmod +x testing9calls.sh
+# sudo chmod +x testing8calls.sh
+# sudo chmod +x testing6calls.sh
 
-sudo chown -R vault:Vault /home/testing.sh
-sudo chown -R vault:Vault /home/testing10calls.sh
-sudo chown -R vault:Vault /home/testing9calls.sh
-sudo chown -R vault:Vault /home/testing8calls.sh
-sudo chown -R vault:Vault /home/testing6calls.sh
+# sudo chown -R vault:Vault /home/testing.sh
+# sudo chown -R vault:Vault /home/testing10calls.sh
+# sudo chown -R vault:Vault /home/testing9calls.sh
+# sudo chown -R vault:Vault /home/testing8calls.sh
+# sudo chown -R vault:Vault /home/testing6calls.sh

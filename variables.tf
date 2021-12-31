@@ -15,15 +15,15 @@ variable "environment_name" {
 
 variable "vault_server_names" {
   description = "Names of the Vault nodes that will join the cluster"
-  type = list(string)
-  default = [ "vault_1", "vault_2", "vault_3" ]
+  type        = list(string)
+  default     = ["vault_1", "vault_2", "vault_3"]
 }
 
 variable "vault_server_private_ips" {
-  description = "The private ips of the Vault nodes that will join the cluster"
+  description = "The priva te ips of the Vault nodes that will join the cluster"
   # @see https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
-  type = list(string)
-  default = [ "10.0.101.xx", "10.0.101.xx", "10.0.101.xx" ]
+  type    = list(string)
+  default = ["10.0.101.100", "10.0.101.101", "10.0.101.103"]
 }
 
 
@@ -34,14 +34,14 @@ variable "vault_zip_file" {
 
 # Instance size
 variable "instance_type" {
-  default = "m5.large"
+  default = "t2.large"
 }
 
 # SSH key name to access EC2 instances (should already exist) in the AWS Region
 variable "key_pair" {
   description = "SSH Key pair used to connect on AWS east-1"
   type        = string
-  default     = "vault_kp_e1"
+  default     = "batman"
 }
 
 variable "instance_ami" {
